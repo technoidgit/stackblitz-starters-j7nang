@@ -1,11 +1,12 @@
-const express = require('express');
-const { resolve } = require('path');
+let express = require('express');
+let app = express()
+ 
+app.get("/name",(req,res)=>{
+  let myName = (req.query.name).toUpperCase();
+  res.send(myName);
+} );
 
-const app = express();
-const port = 3010;
-
-
-
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
-});
+let PORT= 3010
+app.listen(PORT,()=>{
+  console.log("app is running on", PORT)
+})
