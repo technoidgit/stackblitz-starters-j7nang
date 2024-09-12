@@ -1,5 +1,6 @@
 let express = require('express');
 let app = express()
+
  
 app.get("/shout",(req,res)=>{
   let myName = (req.query.name).toUpperCase();
@@ -42,6 +43,11 @@ app.get("/email", (req,res)=>{
   let email= username+"@"+domain;
   res.send(email);
 });
+app.get("/whisper",(req,res)=>{
+  let name= (req.query.name).toLowerCase();
+  res.send(name);
+});
+
 
 let PORT= 3000
 app.listen(PORT,()=>{
